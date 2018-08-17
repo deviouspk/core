@@ -34,7 +34,7 @@
     "spatie/laravel-fractal": "5.3.*",
     "vinkla/hashids": "^5.0",
     "optimus/heimdal" : "~1.5",
-    "dto/dto" : "custom"
+    "dto/dto" : "dev-custom"
   },
   "require-dev": {
 

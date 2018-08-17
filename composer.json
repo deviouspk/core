@@ -20,6 +20,12 @@
     "Porto SAP"
   ],
   "license": "MIT",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/deviouspk/dto"
+    }
+  ],
   "require": {
     "apiato/containers-installer" : "1.0.*",
     "guzzlehttp/guzzle": "^6.3",
@@ -28,7 +34,7 @@
     "spatie/laravel-fractal": "5.3.*",
     "vinkla/hashids": "^5.0",
     "optimus/heimdal" : "~1.5",
-    "dto/dto" : "^3.2"
+    "dto/dto" : "dev-custom"
   },
   "require-dev": {
 

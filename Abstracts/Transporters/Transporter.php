@@ -86,7 +86,7 @@ abstract class Transporter extends Dto
     {
 
         // if set as instance, return it directly
-        if(isset($this->instances[$name])){
+        if (isset($this->instances[$name])) {
             return $this->instances[$name];
         }
 
@@ -97,9 +97,13 @@ abstract class Transporter extends Dto
 
         $field = parent::__get($name);
 
-        // this will call the toScalar / toArray / toObject / ... functions
-        $type = $field->getStorageType();
-        $value = call_user_func([$field, 'to' . Str::ucfirst($type)]);
+        if ($field instanceof Dto) {
+            // this will call the toScalar / toArray / toObject / ... functions
+            $type = $field->getStorageType();
+            $value = call_user_func([$field, 'to' . Str::ucfirst($type)]);
+        } else {
+            $value = $field;
+        }
 
         return $value;
     }

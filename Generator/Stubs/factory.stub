@@ -16,6 +16,6 @@ use Faker\Generator as Faker;
 
 $factory->define({{container-name}}::class, function (Faker $faker) {
     return [
-        //Script::ID => '',
+        //{{container-name}}::ID => '',
     ];
 });

@@ -19,6 +19,7 @@ use Apiato\Core\Generator\Commands\LayerGenerator;
 use Apiato\Core\Generator\Commands\MailGenerator;
 use Apiato\Core\Generator\Commands\MigrationGenerator;
 use Apiato\Core\Generator\Commands\ModelGenerator;
+use Apiato\Core\Generator\Commands\MongoMigrationGenerator;
 use Apiato\Core\Generator\Commands\MongoModelGenerator;
 use Apiato\Core\Generator\Commands\NotificationGenerator;
 use Apiato\Core\Generator\Commands\ReadmeGenerator;
@@ -102,7 +103,8 @@ class GeneratorsServiceProvider extends ServiceProvider
             SchemaGenerator::class,
             MongoModelGenerator::class,
             ServiceGenerator::class,
-            ServiceContractGenerator::class
+            ServiceContractGenerator::class,
+            MongoMigrationGenerator::class
         ]);
     }
 

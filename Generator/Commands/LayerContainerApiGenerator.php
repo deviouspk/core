@@ -117,7 +117,7 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
 
         // create the migration file for the model
         $this->printInfoMessage('Generating a basic Migration file');
-        $this->call('apiato:generate:mongomigration', [
+        $this->call('apiato:generate:migration:mongo', [
             '--container'   => $containerName,
             '--file'        => 'create_' . Str::lower($_containerName) . '_collection',
             '--tablename'   => $models,

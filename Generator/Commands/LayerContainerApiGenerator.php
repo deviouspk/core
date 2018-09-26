@@ -86,6 +86,13 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
         $models = Pluralizer::plural($model);
 
         // create the ContainerServiceProvider for the container
+        $this->printInfoMessage('Generating Container Service');
+        $this->call('apiato:generate:service', [
+            '--container'   => $containerName,
+            '--file'        => $containerName.'Service'
+        ]);
+
+        // create the ContainerServiceProvider for the container
         $this->printInfoMessage('Generating ContainerServiceProvider');
         $this->call('apiato:generate:serviceprovider', [
             '--container'   => $containerName,
@@ -105,8 +112,7 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
         $this->printInfoMessage('Generating Model');
         $this->call('apiato:generate:mongomodel', [
             '--container'   => $containerName,
-            '--file'        => $model,
-            '--repository'  => false,
+            '--file'        => $model
         ]);
 
         // create the migration file for the model

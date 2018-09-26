@@ -19,4 +19,9 @@ class {{container-name}}Layer extends Layer implements CrudModelContract
 
     protected static $modelClass = {{container-name}}::class;
 
+    public function toModel(): {{container-name}}
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return $this->model;
+    }
 }

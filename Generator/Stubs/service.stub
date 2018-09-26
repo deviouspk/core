@@ -1,5 +1,4 @@
 <?php
-/** @noinspection PhpIncompatibleReturnTypeInspection */
 
 namespace App\Containers\{{container-name}}\Services;
 
@@ -18,11 +17,11 @@ class {{container-name}}Service implements {{container-name}}ServiceContract
 
     /**
      * @param array $where
-     * @return Energy[] | Collection
+     * @return {{container-name}}[] | Collection
      */
      public function all(array $where = array()): Collection
      {
-        return EnergyLayer::all($where);
+        return {{container-name}}Layer::all($where);
      }
 
     /**

@@ -73,11 +73,6 @@ class SchemaActionsGenerator extends GeneratorCommand implements ComponentsGener
      */
     public function getUserInputs()
     {
-        $models = Pluralizer::plural($model);
-
-        $entity = Str::lower($model);
-        $entities = Pluralizer::plural($entity);
-
         return [
             'path-parameters' => [
                 'container-name' => $this->containerName,
@@ -86,10 +81,6 @@ class SchemaActionsGenerator extends GeneratorCommand implements ComponentsGener
                 '_container-name' => Str::lower($this->containerName),
                 'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
-                'model' => $model,
-                'models' => $models,
-                'entity' => $entity,
-                'entities' => $entities,
             ],
             'file-parameters' => [
                 'file-name' => $this->fileName,

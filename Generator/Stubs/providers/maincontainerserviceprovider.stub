@@ -26,7 +26,9 @@ class MainServiceProvider extends MainProvider
      *
      * @var  array
      */
-    public $aliases = [];
+    public $aliases = [
+
+    ];
 
     /**
      * Register anything in the container.
@@ -35,4 +37,5 @@ class MainServiceProvider extends MainProvider
     {
 
     }
+
 }

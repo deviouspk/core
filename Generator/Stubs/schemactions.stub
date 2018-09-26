@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Data\Schemas\Actions;
+
+
+use App\Ship\Parents\Dlto\Schema\Interfaces\CrudActions;
+
+interface {{container-name}}Actions extends CrudActions
+{
+
+}

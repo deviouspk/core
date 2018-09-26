@@ -36,7 +36,7 @@ class {{class-name}} extends {{base-controller}}
      */
     public function create{{model}}(Create{{model}}Request $request)
     {
-        ${{entity}} = Apiato::call('{{container-name}}@Create{{model}}Action', [$request]);
+        ${{entity}} = $this->service->create($request->toArray());
 
         return $this->created($this->transform(${{entity}}, {{model}}Transformer::class));
     }
@@ -47,7 +47,7 @@ class {{class-name}} extends {{base-controller}}
      */
     public function find{{model}}ById(Find{{model}}ByIdRequest $request)
     {
-        ${{entity}} = Apiato::call('{{container-name}}@Find{{model}}ByIdAction', [$request]);
+        ${{entity}} = $this->service->find($request->id);
 
         return $this->transform(${{entity}}, {{model}}Transformer::class);
     }
@@ -58,7 +58,7 @@ class {{class-name}} extends {{base-controller}}
      */
     public function getAll{{models}}(GetAll{{models}}Request $request)
     {
-        ${{entities}} = Apiato::call('{{container-name}}@GetAll{{models}}Action', [$request]);
+        ${{entities}} = $this->service->all($request->toArray());
 
         return $this->transform(${{entities}}, {{model}}Transformer::class);
     }
@@ -69,7 +69,7 @@ class {{class-name}} extends {{base-controller}}
      */
     public function update{{model}}(Update{{model}}Request $request)
     {
-        ${{entity}} = Apiato::call('{{container-name}}@Update{{model}}Action', [$request]);
+        ${{entity}} = $this->service->update($request->id,$request->toArray());
 
         return $this->transform(${{entity}}, {{model}}Transformer::class);
     }
@@ -80,7 +80,7 @@ class {{class-name}} extends {{base-controller}}
      */
     public function delete{{model}}(Delete{{model}}Request $request)
     {
-        Apiato::call('{{container-name}}@Delete{{model}}Action', [$request]);
+        $this->service->delete($request->id);
 
         return $this->noContent();
     }

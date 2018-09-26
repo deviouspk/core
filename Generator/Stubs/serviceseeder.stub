@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Data\Seeders;
+
+use App\Ship\Parents\Seeders\Seeder;
+
+class {{container-name}}Seeder extends Seeder
+{
+
+    protected $service;
+    
+    protected ${{container-name}}Factory;
+
+    /**
+     * {{container-name}}Seeder constructor.
+     */
+    public function __construct({{container-name}}ServiceContract $service)
+    {
+        $this->service = $service;
+        $this->{{container-name}}Factory =factory({{container-name}}::class, 10);
+    }
+
+    public function run()
+    {
+        foreach ($this->{{container-name}}Factory->raw() as ${{container-name}}) {
+            $this->service->create(${{container-name}});
+        }
+    }
+}

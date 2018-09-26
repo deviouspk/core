@@ -26,11 +26,13 @@ use Apiato\Core\Generator\Commands\ReadmeGenerator;
 use Apiato\Core\Generator\Commands\RepositoryGenerator;
 use Apiato\Core\Generator\Commands\RequestGenerator;
 use Apiato\Core\Generator\Commands\RouteGenerator;
+use Apiato\Core\Generator\Commands\SchemaActionsGenerator;
 use Apiato\Core\Generator\Commands\SchemaGenerator;
 use Apiato\Core\Generator\Commands\SeederGenerator;
 use Apiato\Core\Generator\Commands\ServiceContractGenerator;
 use Apiato\Core\Generator\Commands\ServiceGenerator;
 use Apiato\Core\Generator\Commands\ServiceProviderGenerator;
+use Apiato\Core\Generator\Commands\ServiceSeederGenerator;
 use Apiato\Core\Generator\Commands\SubActionGenerator;
 use Apiato\Core\Generator\Commands\TaskGenerator;
 use Apiato\Core\Generator\Commands\TestFunctionalTestGenerator;
@@ -104,7 +106,9 @@ class GeneratorsServiceProvider extends ServiceProvider
             MongoModelGenerator::class,
             ServiceGenerator::class,
             ServiceContractGenerator::class,
-            MongoMigrationGenerator::class
+            MongoMigrationGenerator::class,
+            ServiceSeederGenerator::class,
+            SchemaActionsGenerator::class
         ]);
     }
 

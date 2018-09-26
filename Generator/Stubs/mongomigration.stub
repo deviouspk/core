@@ -1,7 +1,7 @@
 <?php
 
-use App\Ship\Parents\Migrations\MongoMigration
-use Jenssegers\Mongodb\Schema\Blueprint
+use App\Ship\Parents\Migrations\MongoMigration;
+use Jenssegers\Mongodb\Schema\Blueprint;
 
 class Create{{container-name}}Collection extends MongoMigration
 {

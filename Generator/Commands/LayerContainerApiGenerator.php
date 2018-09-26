@@ -108,6 +108,13 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
             '--stub'        => 'maincontainerserviceprovider',
         ]);
 
+        // create the Attributes Interface for the model
+        $this->printInfoMessage('Generating Attributes');
+        $this->call('apiato:generate:attributes', [
+            '--container'   => $containerName,
+            '--file'        => $containerName.'Attributes'
+        ]);
+
         // create the model and repository for this container
         $this->printInfoMessage('Generating Model');
         $this->call('apiato:generate:mongomodel', [
@@ -123,11 +130,11 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
             '--tablename'   => $models,
         ]);
 
-        // create the Attributes Interface for the model
-        $this->printInfoMessage('Generating Attributes');
-        $this->call('apiato:generate:attributes', [
+        // create a transformer for the model
+        $this->printInfoMessage('Generating Actions for the Schema');
+        $this->call('apiato:generate:schema:actions', [
             '--container'   => $containerName,
-            '--file'        => $containerName.'Attributes'
+            '--file'        => $containerName . 'Actions',
         ]);
 
         // create the Schema for the model
@@ -234,7 +241,7 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
                 '--file' => $route['request'],
                 '--ui' => $ui,
                 '--transporter' => false,
-                '--transportername' => $route['transporter'],
+                '--transportername' => 'none',
             ]);
         }
 

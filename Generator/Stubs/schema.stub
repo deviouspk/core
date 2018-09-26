@@ -4,7 +4,6 @@ namespace App\Containers\{{container-name}}\Data\Schemas;
 
 use App\Containers\{{container-name}}\Data\Attributes\{{container-name}}Attributes;
 use App\Ship\Dlto\Schemas\MongoIdPropertySchema;
-use App\Ship\Dlto\Schemas\MongoTimestampPropertySchema;
 use App\Ship\Parents\Dlto\Schema\Interfaces\CrudActions;
 use App\Ship\Parents\Dlto\Schema\ActionSchema;
 use App\Ship\Parents\Dlto\Schema\Enums\Type;
@@ -16,64 +15,64 @@ class {{container-name}}Schema extends ActionSchema
     use MongoTimestampsPropertiesTrait;
 
     protected $schema = [
-        Schema::TYPE => Type::OBJECT,
-        Schema::SUB_SCHEMAS => [
+            Schema::TYPE => Type::OBJECT,
+            Schema::SUB_SCHEMAS => [
 
-        ],
-        Schema::GUARDS => [
+            ],
+            Schema::GUARDS => [
 
-        ],
-        Schema::NULLABLE => [
+            ],
+            Schema::NULLABLE => [
 
-        ],
-        Schema::PROPERTIES => [
-            {{container-name}}Attributes::ID => MongoIdPropertySchema::class
-        ],
-        Schema::ACTIONS => [
-                    CrudActions::MODEL => [
-                        Schema::REQUIRED => [
+            ],
+            Schema::PROPERTIES => [
+                EnergyAttributes::ID => MongoIdPropertySchema::class
+            ],
+            Schema::ACTIONS => [
+                CrudActions::MODEL => [
+                    Schema::REQUIRED => [
 
-                        ],
-                        Schema::FILLABLE => [
-
-                        ],
-                        Schema::DEFAULT => [
-
-                        ]
                     ],
-                    CrudActions::ALL => [
-                        Schema::REQUIRED => [
+                    Schema::FILLABLE => [
 
-                        ],
-                        Schema::FILLABLE => [
-
-                        ],
-                        Schema::DEFAULT => [
-
-                        ]
                     ],
-                    CrudActions::CREATE => [
-                        Schema::REQUIRED => [
+                    Schema::DEFAULT => [
 
-                        ],
-                        Schema::FILLABLE => [
+                    ]
+                ],
+                CrudActions::ALL => [
+                    Schema::REQUIRED => [
 
-                        ],
-                        Schema::DEFAULT => [
-
-                        ]
                     ],
-                    CrudActions::UPDATE => [
-                        Schema::REQUIRED => [
+                    Schema::FILLABLE => [
 
-                        ],
-                        Schema::FILLABLE => [
+                    ],
+                    Schema::DEFAULT => [
 
-                        ],
-                        Schema::DEFAULT => [
+                    ]
+                ],
+                CrudActions::CREATE => [
+                    Schema::REQUIRED => [
 
-                        ]
+                    ],
+                    Schema::FILLABLE => [
+
+                    ],
+                    Schema::DEFAULT => [
+
+                    ]
+                ],
+                CrudActions::UPDATE => [
+                    Schema::REQUIRED => [
+
+                    ],
+                    Schema::FILLABLE => [
+
+                    ],
+                    Schema::DEFAULT => [
+
                     ]
                 ]
-    ];
+            ]
+        ];
 }

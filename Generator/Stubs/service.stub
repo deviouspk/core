@@ -1,34 +1,65 @@
 <?php
+/** @noinspection PhpIncompatibleReturnTypeInspection */
 
 namespace App\Containers\{{container-name}}\Services;
 
-use App\Containers\{{container-name}}\Services\Contracts\{{container-name}}ServiceContract;
 
+use App\Containers\{{container-name}}\Data\Layers\{{container-name}}Layer;
+use App\Containers\{{container-name}}\Models\{{container-name}};
+use App\Containers\{{container-name}}\Services\Contracts\{{container-name}}ServiceContract;
+use Illuminate\Database\Eloquent\Collection;
+
+/**
+ * Class {{container-name}}Service
+ * @package App\Containers\{{container-name}}\Services
+ */
 class {{container-name}}Service implements {{container-name}}ServiceContract
 {
-    public function all()
+
+    /**
+         * @param array $where
+         * @return {{container-name}}[] | Collection
+         */
+        public function all(array $where = array()): Collection
+        {
+            return {{container-name}}Layer::all($where);
+        }
+
+    /**
+     * @param $id
+     * @return {{container-name}}
+     */
+    public function find($id): {{container-name}}
     {
-     //TODO
+        return {{container-name}}Layer::find($id)->toModel();
     }
 
-    public function find()
+    /**
+     * @param array $data
+     * @return {{container-name}}
+     */
+    public function create(array $data): {{container-name}}
     {
-     //TODO
+        return {{container-name}}Layer::create($data)->toModel();
     }
 
-    public function create()
+    /**
+     * @param $id
+     * @param array $data
+     * @return {{container-name}}
+     */
+    public function update($id, array $data): {{container-name}}
     {
-     //TODO
+        return {{container-name}}Layer::update($id,$data)->toModel();
     }
 
-    public function update()
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function delete($id): bool
     {
-     //TODO
-    }
-
-    public function delete()
-    {
-     //TODO
+        return {{container-name}}Layer::delete($id);
     }
 
 }

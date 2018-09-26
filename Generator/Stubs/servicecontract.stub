@@ -2,16 +2,37 @@
 
 namespace App\Containers\{{container-name}}\Services\Contracts;
 
+use App\Containers\{{container-name}}\Models\{{container-name}};
+use Illuminate\Database\Eloquent\Collection;
+
+/**
+ * Interface {{container-name}}ServiceContract
+ * @package App\Containers\{{container-name}}\Services\Contracts
+ */
 interface {{container-name}}ServiceContract
 {
-    public function all();
+    /**
+     * @return {{container-name}}[] | Collection
+     */
+    public function all(array $where = array()): Collection;
 
-    public function find();
+    /**
+     * @return {{container-name}}
+     */
+    public function find($id): {{container-name}};
 
-    public function create();
+    /**
+     * @return {{container-name}}
+     */
+    public function create(array $data): {{container-name}};
 
-    public function update();
+    /**
+     * @return {{container-name}}
+     */
+    public function update($id, array $data): {{container-name}};
 
-    public function delete();
-
+    /**
+     * @return bool
+     */
+    public function delete($id): bool;
 }

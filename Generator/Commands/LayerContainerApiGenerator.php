@@ -13,7 +13,7 @@ use Symfony\Component\Console\Input\InputOption;
  *
  * @author  Johannes Schobel <johannes.schobel@googlemail.com>
  */
-class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenerator
+class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsGenerator
 {
 
     /**

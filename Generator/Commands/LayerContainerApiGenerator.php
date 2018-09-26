@@ -238,7 +238,7 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
             '--container'   => $containerName,
             '--file'        => 'Controller',
             '--ui'          => $ui,
-            '--stub'        => 'crud.' . $ui,
+            '--stub'        => 'CRUD.SERVICE.API',
         ]);
 
         $this->printInfoMessage('Generating Composer File');

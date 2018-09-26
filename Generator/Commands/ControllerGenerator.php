@@ -80,7 +80,7 @@ class ControllerGenerator extends GeneratorCommand implements ComponentsGenerato
         $stub = Str::lower($this->checkParameterOrChoice(
             'stub',
             'Select the Stub you want to load',
-            ['Generic', 'CRUD.API', 'CRUD.WEB'],
+            ['Generic', 'CRUD.API', 'CRUD.WEB','CRUD.SERVICE.API',],
             0)
         );
 

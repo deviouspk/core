@@ -3,6 +3,7 @@
 namespace Apiato\Core\Generator;
 
 use Apiato\Core\Generator\Commands\ActionGenerator;
+use Apiato\Core\Generator\Commands\AttributesGenerator;
 use Apiato\Core\Generator\Commands\ConfigurationGenerator;
 use Apiato\Core\Generator\Commands\ContainerApiGenerator;
 use Apiato\Core\Generator\Commands\ContainerGenerator;
@@ -11,16 +12,23 @@ use Apiato\Core\Generator\Commands\ControllerGenerator;
 use Apiato\Core\Generator\Commands\EventGenerator;
 use Apiato\Core\Generator\Commands\EventHandlerGenerator;
 use Apiato\Core\Generator\Commands\ExceptionGenerator;
+use Apiato\Core\Generator\Commands\FactoryGenerator;
 use Apiato\Core\Generator\Commands\JobGenerator;
+use Apiato\Core\Generator\Commands\LayerContainerApiGenerator;
+use Apiato\Core\Generator\Commands\LayerGenerator;
 use Apiato\Core\Generator\Commands\MailGenerator;
 use Apiato\Core\Generator\Commands\MigrationGenerator;
 use Apiato\Core\Generator\Commands\ModelGenerator;
+use Apiato\Core\Generator\Commands\MongoModelGenerator;
 use Apiato\Core\Generator\Commands\NotificationGenerator;
 use Apiato\Core\Generator\Commands\ReadmeGenerator;
 use Apiato\Core\Generator\Commands\RepositoryGenerator;
 use Apiato\Core\Generator\Commands\RequestGenerator;
 use Apiato\Core\Generator\Commands\RouteGenerator;
+use Apiato\Core\Generator\Commands\SchemaGenerator;
 use Apiato\Core\Generator\Commands\SeederGenerator;
+use Apiato\Core\Generator\Commands\ServiceContractGenerator;
+use Apiato\Core\Generator\Commands\ServiceGenerator;
 use Apiato\Core\Generator\Commands\ServiceProviderGenerator;
 use Apiato\Core\Generator\Commands\SubActionGenerator;
 use Apiato\Core\Generator\Commands\TaskGenerator;
@@ -62,6 +70,7 @@ class GeneratorsServiceProvider extends ServiceProvider
             ActionGenerator::class,
             ConfigurationGenerator::class,
             ContainerGenerator::class,
+            LayerContainerApiGenerator::class,
             ContainerApiGenerator::class,
             ContainerWebGenerator::class,
             ControllerGenerator::class,
@@ -87,6 +96,13 @@ class GeneratorsServiceProvider extends ServiceProvider
             TransformerGenerator::class,
             TransporterGenerator::class,
             ValueGenerator::class,
+            FactoryGenerator::class,
+            LayerGenerator::class,
+            AttributesGenerator::class,
+            SchemaGenerator::class,
+            MongoModelGenerator::class,
+            ServiceGenerator::class,
+            ServiceContractGenerator::class
         ]);
     }
 

@@ -12,6 +12,8 @@ class {{container-name}} extends MongoModel implements {{container-name}}Attribu
 
     const DELETED_AT = 'deleted_at';
 
+    protected $collection = '{{table-name}}';
+
     protected $guarded = [
 
     ];

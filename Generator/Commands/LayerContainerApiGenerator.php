@@ -119,7 +119,8 @@ class LayerContainerApiGenerator extends GeneratorCommand implements ComponentsG
         $this->printInfoMessage('Generating Model');
         $this->call('apiato:generate:mongomodel', [
             '--container'   => $containerName,
-            '--file'        => $model
+            '--file'        => $model,
+            '--tablename'   => $models,
         ]);
 
         // create the migration file for the model

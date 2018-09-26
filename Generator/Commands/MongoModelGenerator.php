@@ -64,13 +64,16 @@ class MongoModelGenerator extends GeneratorCommand implements ComponentsGenerato
      *
      * @var  array
      */
-    public $inputs = [];
+    public $inputs = [
+        ['tablename', null, InputOption::VALUE_OPTIONAL, 'The name for the database collection'],
+    ];
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getUserInputs()
     {
+        $tablename = Str::lower($this->checkParameterOrAsk('tablename', 'Enter the name of the database collection for the model'));
         return [
             'path-parameters' => [
                 'container-name' => $this->containerName,
@@ -80,6 +83,7 @@ class MongoModelGenerator extends GeneratorCommand implements ComponentsGenerato
                 'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
                 'resource-key' => strtolower(Pluralizer::plural($this->fileName)),
+                'table-name' => $tablename
             ],
             'file-parameters' => [
                 'file-name' => $this->fileName,

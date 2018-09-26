@@ -17,13 +17,13 @@ class {{container-name}}Service implements {{container-name}}ServiceContract
 {
 
     /**
-         * @param array $where
-         * @return {{container-name}}[] | Collection
-         */
-        public function all(array $where = array()): Collection
-        {
-            return {{container-name}}Layer::all($where);
-        }
+     * @param array $where
+     * @return Energy[] | Collection
+     */
+     public function all(array $where = array()): Collection
+     {
+        return EnergyLayer::all($where);
+     }
 
     /**
      * @param $id

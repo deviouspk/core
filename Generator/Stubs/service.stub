@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Services;
+
+use App\Containers\{{container-name}}\Services\Contracts\{{container-name}}ServiceContract;
+
+class {{container-name}}Service implements {{container-name}}ServiceContract
+{
+    public function all()
+    {
+     //TODO
+    }
+
+    public function find()
+    {
+     //TODO
+    }
+
+    public function create()
+    {
+     //TODO
+    }
+
+    public function update()
+    {
+     //TODO
+    }
+
+    public function delete()
+    {
+     //TODO
+    }
+
+}

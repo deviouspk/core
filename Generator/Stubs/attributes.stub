@@ -1,0 +1,9 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Data\Attributes;
+
+interface {{container-name}}Attributes
+{
+    const ID = '_id';
+
+}

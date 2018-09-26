@@ -4,15 +4,16 @@ namespace Apiato\Core\Generator\Commands;
 
 use Apiato\Core\Generator\GeneratorCommand;
 use Apiato\Core\Generator\Interfaces\ComponentsGenerator;
+use Illuminate\Support\Pluralizer;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
- * Class ServiceProviderGenerator
+ * Class ModelGenerator
  *
- * @author  Johannes Schobel <johannes.schobel@googlemail.com>
+ * @author  Justin Atack  <justinatack@gmail.com>
  */
-class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGenerator
+class MongoModelGenerator extends GeneratorCommand implements ComponentsGenerator
 {
 
     /**
@@ -20,28 +21,28 @@ class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGen
      *
      * @var string
      */
-    protected $name = 'apiato:generate:serviceprovider';
+    protected $name = 'apiato:generate:mongomodel';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a ServiceProvider for a Container';
+    protected $description = 'Create a new Mongo Model class';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $fileType = 'ServiceProvider';
+    protected $fileType = 'Model';
 
     /**
      * The structure of the file path.
      *
      * @var  string
      */
-    protected $pathStructure = '{container-name}/Providers/*';
+    protected $pathStructure = '{container-name}/Models/*';
 
     /**
      * The structure of the file name.
@@ -55,7 +56,7 @@ class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGen
      *
      * @var  string
      */
-    protected $stubName = 'providers/mainserviceprovider.stub';
+    protected $stubName = 'mongomodel.stub';
 
     /**
      * User required/optional inputs expected to be passed while calling the command.
@@ -63,24 +64,13 @@ class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGen
      *
      * @var  array
      */
-    public $inputs = [
-        ['stub', null, InputOption::VALUE_OPTIONAL, 'The stub file to load for this generator.'],
-    ];
+    public $inputs = [];
 
     /**
      * @return array
      */
     public function getUserInputs()
     {
-        $stub = Str::lower($this->checkParameterOrChoice(
-            'stub',
-            'Select the Stub you want to load',
-            ['Generic', 'MainServiceProvider', 'MainContainerServiceProvider', 'ContainerServiceProvider'],
-            0)
-        );
-
-        $this->stubName = "providers/$stub.stub";
-
         return [
             'path-parameters' => [
                 'container-name' => $this->containerName,
@@ -89,6 +79,7 @@ class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGen
                 '_container-name' => Str::lower($this->containerName),
                 'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
+                'resource-key' => strtolower(Pluralizer::plural($this->fileName)),
             ],
             'file-parameters' => [
                 'file-name' => $this->fileName,
@@ -96,13 +87,4 @@ class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGen
         ];
     }
 
-    /**
-     * Get the default file name for this component to be generated
-     *
-     * @return string
-     */
-    public function getDefaultFileName()
-    {
-        return 'MainServiceProvider';
-    }
 }

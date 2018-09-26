@@ -32,9 +32,7 @@ class {{class-name}} extends Request
      *
      * @var  array
      */
-    protected $decode = [
-        // 'id',
-    ];
+    protected $decode = [];
 
     /**
      * Defining the URL parameters (e.g, `/user/{id}`) allows applying
@@ -43,7 +41,7 @@ class {{class-name}} extends Request
      * @var  array
      */
     protected $urlParameters = [
-        // 'id',
+         'id',
     ];
 
     /**
@@ -51,10 +49,7 @@ class {{class-name}} extends Request
      */
     public function rules()
     {
-        return [
-            // 'id' => 'required',
-            // '{user-input}' => 'required|max:255',
-        ];
+        return [];
     }
 
     /**

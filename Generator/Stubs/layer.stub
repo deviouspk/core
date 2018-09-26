@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Data\Layers;
+
+use App\Ship\Parents\Dlto\Layer\Layer;
+use App\Ship\Parents\Dlto\Layer\CrudModelContract;
+use App\Ship\Parents\Dlto\Layer\Traits\CrudModelLayerTrait;
+use App\Ship\Parents\Dlto\Layer\Traits\LayerHelperMethodsTrait;
+use App\Containers\{{container-name}}\Data\Schemas\Actions\{{container-name}}Actions;
+use App\Containers\{{container-name}}\Data\Schemas\{{container-name}}Schema;
+use App\Containers\{{container-name}}\Models\{{container-name}};
+
+
+class {{container-name}}Layer extends Layer implements CrudModelContract
+{
+    use CrudModelLayerTrait, LayerHelperMethodsTrait;
+
+    protected static $schemaClass = {{container-name}}Schema::class;
+
+    protected static $modelClass = {{container-name}}::class;
+
+}

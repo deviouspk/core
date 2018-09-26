@@ -1,0 +1,14 @@
+<?php
+
+use App\Ship\Parents\Migrations\MongoMigration
+use Jenssegers\Mongodb\Schema\Blueprint
+
+class Create{{container-name}}Collection extends MongoMigration
+{
+    protected $collection = '{{table-name}}';
+
+    protected function setCollectionSchema(Blueprint $collection)
+    {
+        //$collection->index('user_id');
+    }
+}

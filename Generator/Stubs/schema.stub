@@ -2,7 +2,8 @@
 
 namespace App\Containers\{{container-name}}\Data\Schemas;
 
-use App\Containers\{{container-name}}\Data\Attributes\{{container-name}}Attributes;
+use App\Containers\{{container-name}}\Models\{{container-name}};
+use App\Containers\{{container-name}}\Data\Schemas\Actions\{{container-name}}Actions;
 use App\Ship\Dlto\Schemas\MongoIdPropertySchema;
 use App\Ship\Parents\Dlto\Schema\Interfaces\CrudActions;
 use App\Ship\Parents\Dlto\Schema\ActionSchema;
@@ -26,10 +27,10 @@ class {{container-name}}Schema extends ActionSchema
 
             ],
             Schema::PROPERTIES => [
-                EnergyAttributes::ID => MongoIdPropertySchema::class
+                {{container-name}}::ID => MongoIdPropertySchema::class
             ],
             Schema::ACTIONS => [
-                CrudActions::MODEL => [
+                {{container-name}}Actions::MODEL => [
                     Schema::REQUIRED => [
 
                     ],
@@ -40,7 +41,7 @@ class {{container-name}}Schema extends ActionSchema
 
                     ]
                 ],
-                CrudActions::ALL => [
+                {{container-name}}Actions::ALL => [
                     Schema::REQUIRED => [
 
                     ],
@@ -51,7 +52,7 @@ class {{container-name}}Schema extends ActionSchema
 
                     ]
                 ],
-                CrudActions::CREATE => [
+                {{container-name}}Actions::CREATE => [
                     Schema::REQUIRED => [
 
                     ],
@@ -62,7 +63,7 @@ class {{container-name}}Schema extends ActionSchema
 
                     ]
                 ],
-                CrudActions::UPDATE => [
+                {{container-name}}Actions::UPDATE => [
                     Schema::REQUIRED => [
 
                     ],

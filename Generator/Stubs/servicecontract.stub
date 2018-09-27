@@ -2,7 +2,7 @@
 
 namespace App\Containers\{{container-name}}\Services\Contracts;
 
-use App\Containers\{{container-name}}\Models\{{container-name}};
+use App\Containers\{{container-name}}\Data\Layers\{{container-name}}Layer;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
@@ -17,19 +17,19 @@ interface {{container-name}}ServiceContract
     public function all(array $where = array()): Collection;
 
     /**
-     * @return {{container-name}}
+     * @return {{container-name}}Layer
      */
-    public function find($id): {{container-name}};
+    public function find($id): {{container-name}}Layer;
 
     /**
-     * @return {{container-name}}
+     * @return {{container-name}}Layer
      */
-    public function create(array $data): {{container-name}};
+    public function create(array $data): {{container-name}}Layer;
 
     /**
-     * @return {{container-name}}
+     * @return {{container-name}}Layer
      */
-    public function update($id, array $data): {{container-name}};
+    public function update($id, array $data): {{container-name}}Layer;
 
     /**
      * @return bool

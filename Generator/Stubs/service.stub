@@ -28,18 +28,23 @@ class {{container-name}}Service implements {{container-name}}ServiceContract
      * @param $id
      * @return {{container-name}}
      */
-    public function find($id): {{container-name}}
+    public function find($id): {{container-name}}Layer
     {
-        return {{container-name}}Layer::find($id)->toModel();
+        $layer = {{container-name}}Layer::find($id);
+
+        if ($layer === null)
+            throw new NotFoundException("{{container-name}} not found");
+
+        return $layer->toModel();
     }
 
     /**
      * @param array $data
      * @return {{container-name}}
      */
-    public function create(array $data): {{container-name}}
+    public function create(array $data): {{container-name}}Layer
     {
-        return {{container-name}}Layer::create($data)->toModel();
+        return {{container-name}}Layer::create($data);
     }
 
     /**
@@ -47,9 +52,9 @@ class {{container-name}}Service implements {{container-name}}ServiceContract
      * @param array $data
      * @return {{container-name}}
      */
-    public function update($id, array $data): {{container-name}}
+    public function update($id, array $data): {{container-name}}Layer
     {
-        return {{container-name}}Layer::update($id,$data)->toModel();
+        return $this->find($id)->update($data);
     }
 
     /**
@@ -58,7 +63,7 @@ class {{container-name}}Service implements {{container-name}}ServiceContract
      */
     public function delete($id): bool
     {
-        return {{container-name}}Layer::delete($id);
+        return $this->find($id)->delete();
     }
 
 }

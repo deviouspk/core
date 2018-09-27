@@ -64,16 +64,19 @@ abstract class TestCase extends LaravelTestCase
      */
     protected function refreshInMemoryDatabase()
     {
-        // migrate the database
-        $this->migrateDatabase();
+        if (!RefreshDatabaseState::$migrated) {
+            // migrate the database
+            $this->migrateDatabase();
 
-        // seed the database
-        $this->seed();
+            // seed the database
+            $this->seed();
 
-        // Install Passport Client for Testing
-        $this->setupPassportOAuth2();
+            // Install Passport Client for Testing
+            $this->setupPassportOAuth2();
 
-        $this->app[Kernel::class]->setArtisan(null);
+            $this->app[Kernel::class]->setArtisan(null);
+            RefreshDatabaseState::$migrated = true;
+        }
     }
 
     /**
@@ -84,7 +87,7 @@ abstract class TestCase extends LaravelTestCase
      */
     protected function refreshTestDatabase()
     {
-        if (! RefreshDatabaseState::$migrated) {
+        if (!RefreshDatabaseState::$migrated) {
 
             $this->artisan('migrate:fresh');
             $this->seed();
